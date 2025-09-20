@@ -22,6 +22,7 @@ def create_critical_alert(sender, instance, created, **kwargs):
     Create an Alert when a HeartRateRecord is critical.
     Send email to doctors asynchronously via Celery.
     """
+    print("hoo")
     if not created:
         return
 
@@ -54,6 +55,7 @@ def create_critical_alert(sender, instance, created, **kwargs):
                 send_alert_email_task.delay(
                     to_email=doctor.email,
                     patient_name=patient.name,
+                    patient_id=patient.id,
                     bpm=bpm,
                     recorded_at=instance.recorded_at
                 )

@@ -4,16 +4,17 @@ from apps.users.models import User, UserManager
 from apps.places.models import Place
 from apps.common.validators import phone_validator
 from utils.constants.choices import ROLE_CHOICES
+from apps.places.serializers import PlaceSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
     phone = serializers.CharField(required=False, validators=[phone_validator])
-
+    place_detail = PlaceSerializer(source="place", read_only=True)
     class Meta:
         model = User
         fields = [
             "id", "email", "first_name", "last_name",
-            "phone", "address", "role", "is_active",
+            "phone", "address", "role", "place_detail", "is_active",
             "created_at", "modified_at"
         ]
         read_only_fields = ["id", "role", "created_at", "modified_at"]

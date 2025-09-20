@@ -307,3 +307,12 @@ CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 # Optional: retry failed tasks automatically
 CELERY_TASK_ACKS_LATE = True
 CELERY_BEAT_SCHEDULE = {}
+
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+import platform
+if platform.system() == "Windows":
+    CELERY_WORKER_POOL = "solo"
+    
