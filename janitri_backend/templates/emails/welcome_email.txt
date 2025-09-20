@@ -1,0 +1,13 @@
+Welcome, {{ user.first_name }}
+
+Thank you for signing up with us! We're excited to have you on board.
+
+Here’s what you can do next:
+- Explore your dashboard
+- Update your profile
+- Start using our services right away
+
+If you have any questions, feel free to reach out at support@yourcompany.com.
+
+Cheers,
+The {{ company_name }} Team

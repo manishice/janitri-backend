@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Our Platform</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px;">
+    <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border-radius: 8px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://yourcdn.com/logo.png" alt="Company Logo" width="120"/>
+        </div>
+        <h2 style="color: #333;">Welcome, {{ user.first_name }} </h2>
+        <p>Thank you for signing up with us! We're excited to have you on board.</p>
+
+        <p>Here’s what you can do next:</p>
+        <ul>
+            <li>Explore your dashboard</li>
+            <li>Update your profile</li>
+            <li>Start using our services right away</li>
+        </ul>
+
+        <p style="margin-top: 20px;">If you have any questions, feel free to reach out at 
+        <a href="mailto:support@yourcompany.com">support@yourcompany.com</a>.</p>
+
+        <p style="margin-top: 30px; font-size: 14px; color: #555;">
+            Cheers,<br>
+            The {{ company_name }} Team
+        </p>
+    </div>
+</body>
