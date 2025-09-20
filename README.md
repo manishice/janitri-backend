@@ -105,6 +105,25 @@ The API will be available at [http://127.0.0.1:8000/api/](http://127.0.0.1:8000/
 
 ---
 
+
+
+## Running Celery
+
+To process background tasks (such as sending email notifications or processing heart rate alerts), you need to run the Celery worker:
+
+**bash**
+
+```
+# Start Celery worker
+celery -A your_project_name worker --loglevel=info
+
+# Start Celery beat for periodic tasks (if configured)
+celery -A your_project_name beat --loglevel=info
+here i haven't implemented any periodic task that is why you dont need to run the celery beat command
+```
+
+Make sure Redis is running before starting Celery, as it's used as the message broker.
+
 ## API Documentation
 
 The project uses DRF Spectacular for API documentation.
