@@ -1,14 +1,9 @@
 from django.db import models
 from apps.common.models import BaseModel
+from utils.constants.choices import GENDER_CHOICES, RELATION_CHOICES
 # Create your models here.
 
 class Patient(BaseModel):
-    GENDER_CHOICES = (
-        ("M", "Male"),
-        ("F", "Female"),
-        ("O", "Other"),
-    )
-
     place = models.ForeignKey("places.Place", on_delete=models.CASCADE, related_name="patients")
     name = models.CharField(max_length=255)
     age = models.PositiveIntegerField()
@@ -19,14 +14,6 @@ class Patient(BaseModel):
 
 
 class Guardian(BaseModel):
-    RELATION_CHOICES = (
-        ("Father", "Father"),
-        ("Mother", "Mother"),
-        ("Spouse", "Spouse"),
-        ("Sibling", "Sibling"),
-        ("Other", "Other"),
-    )
-
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="guardians")
     name = models.CharField(max_length=255)
     phone = models.CharField(max_length=15)

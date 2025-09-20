@@ -112,8 +112,6 @@ class AuthViewSet(viewsets.ViewSet):
                 context = {
                     "user": user,
                     "otp": otp,
-                    "company_name": "Janitri",
-                    "support_email": "support@janitri.com",
                     "expiry_minutes": 5,
                 }
 

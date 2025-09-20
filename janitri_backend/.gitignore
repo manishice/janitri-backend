@@ -124,7 +124,7 @@ celerybeat-schedule-wal
 *.sage.py
 
 # Environments
-# .env
+.env
 # .venv
 # env/
 # venv/

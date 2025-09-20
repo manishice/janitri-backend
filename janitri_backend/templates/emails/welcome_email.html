@@ -1,30 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to Our Platform</title>
-</head>
-<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px;">
-    <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border-radius: 8px;">
-        <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://yourcdn.com/logo.png" alt="Company Logo" width="120"/>
-        </div>
-        <h2 style="color: #333;">Welcome, {{ user.first_name }} </h2>
-        <p>Thank you for signing up with us! We're excited to have you on board.</p>
+<body style="margin:0; padding:0; font-family: Arial, Helvetica, sans-serif; background-color:#ffffff; color:#333;">
 
-        <p>Here’s what you can do next:</p>
-        <ul>
-            <li>Explore your dashboard</li>
-            <li>Update your profile</li>
-            <li>Start using our services right away</li>
+  <!-- Header -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#ffffff; border-bottom:1px solid #eee;">
+    <tr>
+      <td style="padding:16px 16px; text-align:left;">
+        <img src="https://give.do/static/img/logos/KQA/4fce1b91-d99b-4ba2-b899-dd8d40ff30d3.png" alt="Janitri Logo" width="140" style="display:block;">
+      </td>
+    </tr>
+  </table>
+
+  <!-- Body -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding:24px; max-width:600px; margin:0 auto;">
+    <tr>
+      <td>
+        <h2 style="margin:0 0 16px 0; font-size:22px; color:#333; font-weight:bold;">
+          Welcome, {{ user.first_name }}
+        </h2>
+
+        <p style="margin:12px 0; font-size:16px; line-height:1.5;">
+          Thank you for signing up with us! We're excited to have you on board.
+        </p>
+
+        <p style="margin:12px 0; font-size:16px; line-height:1.5;">
+          Here’s what you can do next:
+        </p>
+
+        <ul style="margin:12px 0 20px 20px; font-size:16px; line-height:1.5; color:#333;">
+          <li>Explore your dashboard</li>
+          <li>Update your profile</li>
+          <li>Start using our services right away</li>
         </ul>
 
-        <p style="margin-top: 20px;">If you have any questions, feel free to reach out at 
-        <a href="mailto:support@yourcompany.com">support@yourcompany.com</a>.</p>
-
-        <p style="margin-top: 30px; font-size: 14px; color: #555;">
-            Cheers,<br>
-            The {{ company_name }} Team
+        <p style="margin:16px 0; font-size:16px; line-height:1.5;">
+          If you have any questions, feel free to reach out at 
+          <a href="mailto:support@yourcompany.com" style="color:#0d6efd; text-decoration:none;">support@yourcompany.com</a>.
         </p>
-    </div>
+
+        <p style="margin:30px 0 0 0; font-size:14px; color:#555;">
+          Best regards,<br>
+          The {{ company_name }} Team
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Footer -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#fafafa; border-top:1px solid #eee; margin-top:24px;">
+    <tr>
+      <td style="padding:16px 24px; text-align:left; font-size:13px; color:#666;">
+        © {{ year }} <strong>{{ company_name }}</strong>. All rights reserved.<br>
+        Need help? Contact us at <a href="mailto:{{ support_email }}" style="color:#683382; text-decoration:none;">{{ support_email }}</a><br>
+        <span style="color:#999;">You are receiving this email because you signed up on our platform.</span>
+      </td>
+    </tr>
+  </table>
+
 </body>
+</html>

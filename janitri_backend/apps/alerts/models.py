@@ -5,7 +5,7 @@ from django.conf import settings
 
 class Alert(models.Model):
     patient = models.ForeignKey("patients.Patient", on_delete=models.CASCADE, related_name="alerts")
-    record = models.ForeignKey("records.HeartRateRecord", on_delete=models.CASCADE, related_name="alerts")
+    record = models.OneToOneField("records.HeartRateRecord", on_delete=models.CASCADE, related_name="alerts")
     message = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     resolved = models.BooleanField(default=False)

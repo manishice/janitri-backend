@@ -1,0 +1,7 @@
+Critical Heart Rate Alert
+
+Patient: {{ patient_name }}
+Heart Rate: {{ bpm }} bpm
+Recorded At: {{ recorded_at }}
+
+Please take immediate action.

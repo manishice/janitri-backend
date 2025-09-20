@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
+from utils.constants.choices import ROLE_CHOICES
 
 # Create your models here.
 
@@ -33,12 +34,6 @@ class UserManager(BaseUserManager):
     
 
 class User(AbstractUser):
-    ROLE_CHOICES = (
-        ("ADMIN", "Admin"),
-        ("DOCTOR", "Doctor"),
-        ("NURSE", "Nurse"),
-    )
-
     username = None  # disable default username
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=100)

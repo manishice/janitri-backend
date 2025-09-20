@@ -295,3 +295,15 @@ REDIS_HOST = config("REDIS_HOST", "localhost")
 REDIS_PORT = config("REDIS_PORT", 6379)
 REDIS_DB = config("REDIS_DB", 0)
 REDIS_PASSWORD = config("REDIS_PASSWORD", None)
+
+
+ALERT_CRITICAL_HIGH = 120
+ALERT_CRITICAL_LOW = 40
+
+
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+
+# Optional: retry failed tasks automatically
+CELERY_TASK_ACKS_LATE = True
+CELERY_BEAT_SCHEDULE = {}

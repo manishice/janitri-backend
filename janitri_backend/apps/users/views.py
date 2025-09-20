@@ -124,8 +124,12 @@ class UserViewSet(viewsets.ModelViewSet):
                 subject="Welcome to Janitri - Your Account Details",
                 to_email=user.email,
                 template_name="welcome_email_with_credentials",
-                context={"user": user, "company_name": "Janitri", "email": user.email, "password": password},
-            )
+                context={
+                    "user": user,
+                    "email": user.email,
+                    "password": password
+                    },
+                )
             return success_response(message="User created", data=UserSerializer(user).data, status=201)
         except Exception as e:
             return error_response(message="Error creating user", errors=str(e), status=500)
@@ -214,7 +218,7 @@ class UserViewSet(viewsets.ModelViewSet):
                 subject="Welcome to Janitri - Your Account Details",
                 to_email=user.email,
                 template_name="welcome_email_with_credentials",
-                context={"user": user, "company_name": "Janitri", "email": user.email, "password": password},
+                context={"user": user, "email": user.email, "password": password},
             )
             return success_response(message="User created", data=UserSerializer(user).data, status=201)
         except Exception as e:
