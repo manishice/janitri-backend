@@ -11,6 +11,7 @@ from .serializers import (
     ChangePasswordSerializer,
     ForgotPasswordSerializer,
     ResetPasswordSerializer,
+    RefreshTokenSerializer
 )
 from utils.services.email.send_mail import send_email
 from utils.resource.otp.otp_handler import generate_otp, store_otp, verify_otp, delete_otp
@@ -32,6 +33,8 @@ class AuthViewSet(viewsets.ViewSet):
             return ForgotPasswordSerializer
         if self.action == "reset_password":
             return ResetPasswordSerializer
+        if self.action == "refresh_token":
+            return RefreshTokenSerializer
         return LoginSerializer  # fallback
 
     @action(detail=False, methods=["post"], url_path="login", permission_classes=[AllowAny])
@@ -155,3 +158,23 @@ class AuthViewSet(viewsets.ViewSet):
 
         except Exception as e:
             return error_response("Error during password reset", str(e), status=500)
+        
+    
+    @action(detail=False, methods=["post"], url_path="refresh-token", permission_classes=[AllowAny])
+    def refresh_token(self, request):
+        try:
+            serializer = RefreshTokenSerializer(data=request.data)
+            if not serializer.is_valid():
+                return error_response("Validation error", serializer.errors, status=400)
+
+            refresh_token = serializer.validated_data["refresh"]
+            token = RefreshToken(refresh_token)
+
+            data = {
+                "access": str(token.access_token),
+                "refresh": str(token),  # optional
+            }
+            return success_response("Token refreshed successfully", data)
+
+        except Exception as e:
+            return error_response("Invalid or expired refresh token", str(e), status=400)

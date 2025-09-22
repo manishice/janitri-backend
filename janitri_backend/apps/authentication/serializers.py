@@ -42,3 +42,6 @@ class ResetPasswordSerializer(serializers.Serializer):
     def validate_new_password(self, value):
         validate_password(value)
         return value
+
+class RefreshTokenSerializer(serializers.Serializer):
+    refresh = serializers.CharField(required=True)
